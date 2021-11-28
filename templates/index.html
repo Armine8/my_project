@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Продукты</title>
     <style type="text/css">
 
             table
@@ -52,6 +52,12 @@
         <th>
             provider
         </th>
+        <th>
+            category
+        </th>
+        <th>
+            category1
+        </th>
     </tr>
     {% for object in object_list %}
         <tr>
@@ -61,9 +67,12 @@
             <td>{{ object.price }}</td>
             <td>{{ object.unit }}</td>
             <td>{{ object.provider }}</td>
+            <td>{{ object.category.value }}</td>
+            <td>
+                {% for o in object.category1.all %} {{ o.value }} {% endfor %}
+            </td>
         </tr>
     {% endfor %}
-
 </table>
 </body>
 </html>

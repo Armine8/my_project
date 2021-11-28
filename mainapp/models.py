@@ -1,6 +1,20 @@
 from django.db import models
 
+class Category(models.Model):
+    value = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.value
+
+
+
+
 class Product(models.Model):
+    value = models.CharField(max_length=20)
+    category = models.ForeignKey(Category, null=True, on_delete=models.CASCADE)
+    category1 = models.ManyToManyField(Category, related_name='category1')
+
+
     name = models.CharField(
         verbose_name='имя продукта',
         max_length=128,
@@ -29,7 +43,7 @@ class Product(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return self.value
 
 
 
