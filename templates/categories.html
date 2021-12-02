@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-{% load static %}
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Продукты</title>
-    <style type="text/css">
+    <title>Title</title>
+        <style type="text/css">
 
             table
         {
@@ -29,10 +27,10 @@
             border-radius: 10px 10px 0 0;
         }
 </style>
-
 </head>
 <body>
-<table>
+
+   <table>
     <tr>
         <th>
             id
@@ -59,25 +57,20 @@
             category1
         </th>
     </tr>
-    {% for object in object_list %}
+        {% for pr in objects %}
         <tr>
-            <td>{{ object.id }}</td>
-            <td>{{ object.name }}</td>
-            <td>{{ object.receipt_date }}</td>
-            <td>{{ object.price }}</td>
-            <td>{{ object.unit }}</td>
-            <td>{{ object.provider }}</td>
-            <td>{{ object.category.value }}</td>
+            <td>{{ pr.id }}</td>
+            <td>{{ pr.name }}</td>
+            <td>{{ pr.receipt_date }}</td>
+            <td>{{ pr.price }}</td>
+            <td>{{ pr.unit }}</td>
+            <td>{{ pr.provider }}</td>
+            <td>{{ pr.category.value }}</td>
             <td>
-                {% for o in object.category1.all %} {{ o.value }} {% endfor %}
+                {% for o in pr.category1.all %} {{ o.value }} {% endfor %}
             </td>
         </tr>
-    {% endfor %}
+       {% endfor %}
 </table>
-
-    {% for object in category %}
-            <a href="{% url 'category' object.pk %}"> {{ object.value }}</a>
-
-    {% endfor %}
 </body>
 </html>
