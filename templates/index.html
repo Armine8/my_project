@@ -58,6 +58,9 @@
         <th>
             category1
         </th>
+        <th>
+            site
+        </th>
     </tr>
     {% for object in object_list %}
         <tr>
@@ -71,6 +74,8 @@
             <td>
                 {% for o in object.category1.all %} {{ o.value }} {% endfor %}
             </td>
+            <td>{{ object.site }}</td>
+
         </tr>
     {% endfor %}
 </table>

@@ -12,6 +12,8 @@ class ProductView(ListView):
     model = Product
     template_name = 'index.html'
     queryset = Product.objects.select_related('category').all()
+    # queryset = Product.objects.value_filter().select_related('category').all()
+
 
     def get_context_data(self, **kwargs):
         context = super(ProductView, self).get_context_data(**kwargs)
